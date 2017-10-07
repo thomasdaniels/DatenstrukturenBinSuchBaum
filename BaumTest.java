@@ -10,7 +10,8 @@ public class BaumTest {
 
     public BaumTest() {
         baum = new BinarySearchTree();
-        zeichner = new BaumZeichner(600,400,this.gibBaum(baum));
+        //zeichner = new BaumZeichner(600,400,this.gibBaum(baum));
+        zeichner = new BaumZeichner(600,400,baum);
     }
 
     public void fuehreAus() {
@@ -25,7 +26,8 @@ public class BaumTest {
         
         System.out.print("inorder-Traversierung: ");
         this.inorder(baum);
-        zeichner.zeigeBaum(this.gibBaum(baum));
+        //zeichner.zeigeBaum(this.gibBaum(baum));
+        zeichner.zeigeBaum(baum);
     }
 
     public void inorder(BinarySearchTree<Zahl> b){
@@ -60,18 +62,6 @@ public class BaumTest {
         }
     } // ausgabe
 
-    // Hier dürfte <Zahl> egal sein wegen toString-Methode in Zahl
-  public BinaryTree gibBaum(BinarySearchTree bs){
-    BinaryTree b;
-    if(bs.isEmpty())
-      b=new BinaryTree<Zahl>();
-   else {b=new BinaryTree(bs.getContent());   
-       if(bs.getLeftTree()!=null)
-           b.setLeftTree(this.gibBaum(bs.getLeftTree()));
-       if(bs.getRightTree()!=null)
-           b.setRightTree(this.gibBaum(bs.getRightTree()));   
-        }  
-   return b;     
-  }
+
 }
 

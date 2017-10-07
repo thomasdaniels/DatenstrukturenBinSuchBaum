@@ -48,6 +48,30 @@ public class BaumZeichner extends Frame {
         setVisible(true);
 
     }
+    
+        public BaumZeichner(int frameWidth, int frameHeight, BinarySearchTree pBaum) {
+        super("Binary-SEARCH-Tree - Baumzeichner v1");
+        _baum = this.gibBaum(pBaum);
+        addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent evt) { dispose(); }
+            });
+
+        addComponentListener(new ComponentAdapter(){
+                public void componentResized(ComponentEvent e){
+                    zeigeBaum();
+                }
+            });
+
+        setSize(frameWidth, frameHeight);
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (d.width - getSize().width) / 2;
+        int y = (d.height - getSize().height) / 2;
+        setLocation(x, y);
+
+        setResizable(true);
+        setVisible(true);
+
+    }
 
     public void paint( Graphics g )   {
         super.paint(g);
@@ -70,6 +94,11 @@ public class BaumZeichner extends Frame {
 
     public void zeigeBaum(BinaryTree pBaum)
     {   _baum = pBaum;
+        zeigeBaum();
+    }
+    // nun auch für BinSEARCHTree
+      public void zeigeBaum(BinarySearchTree pBaum)
+    {   _baum = this.gibBaum(pBaum);
         zeigeBaum();
     }
     
@@ -128,5 +157,16 @@ public class BaumZeichner extends Frame {
     public void markiere(String name)
     {  suchName = name; }
 
-
+  public BinaryTree gibBaum(BinarySearchTree bs){
+    BinaryTree b;
+    if(bs.isEmpty())
+      b=new BinaryTree<Zahl>();
+   else {b=new BinaryTree(bs.getContent());   
+       if(bs.getLeftTree()!=null)
+           b.setLeftTree(this.gibBaum(bs.getLeftTree()));
+       if(bs.getRightTree()!=null)
+           b.setRightTree(this.gibBaum(bs.getRightTree()));   
+        }  
+   return b;     
+  }
 }
