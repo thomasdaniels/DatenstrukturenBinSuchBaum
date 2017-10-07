@@ -1,16 +1,16 @@
 
 // import basis.za.adt.*;
 
-public class TestGen {
+public class BaumTest {
     private BinarySearchTree<Zahl> baum;
     private Zahl einzufuegendeZahl;
     private int[] wert = { 20, 28, 35, 31, 9, 4, 13, 17, 37, 25, 1, 12, 10, 16,
             27, 19, 42, 32, 30, 36 };
-    private BaumZeichnerGen zeichner;
+    private BaumZeichner zeichner;
 
-    public TestGen() {
+    public BaumTest() {
         baum = new BinarySearchTree();
-        zeichner = new BaumZeichnerGen(600,400,this.gibBaum(baum));
+        zeichner = new BaumZeichner(600,400,this.gibBaum(baum));
     }
 
     public void fuehreAus() {

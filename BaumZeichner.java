@@ -1,7 +1,8 @@
  /**
  * <p>Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule, Materialien zum schulinternen Lehrplan Informatik SII</p>
- *
  * @version 2014-03-13
+ * 
+ * erweitert DAN 10/2017: zeichnet nun beliebige binäre Bäume, nicht nur die aus dem Beispiel
  */
 import java.awt.*;
 import java.awt.event.*;
@@ -15,7 +16,7 @@ import java.awt.image.*;
  * @author
  */
 
-public class BaumZeichnerGen extends Frame {
+public class BaumZeichner extends Frame {
 
     BinaryTree _baum;
     BufferedImage img;
@@ -24,7 +25,7 @@ public class BaumZeichnerGen extends Frame {
     int _tiefe = 0;       //  Tiefe des Baumes
     String suchName = "";
 
-    public BaumZeichnerGen(int frameWidth, int frameHeight, BinaryTree pBaum) {
+    public BaumZeichner(int frameWidth, int frameHeight, BinaryTree pBaum) {
         super("BinaryTree - Baumzeichner v3");
         _baum = pBaum;
         addWindowListener(new WindowAdapter() {
