@@ -1,5 +1,5 @@
 
-// import basis.za.adt.*;
+//import basis.za.adt.*;
 
 public class BaumTest {
     private BinarySearchTree<Zahl> baum;
@@ -10,7 +10,6 @@ public class BaumTest {
 
     public BaumTest() {
         baum = new BinarySearchTree();
-        //zeichner = new BaumZeichner(600,400,this.gibBaum(baum));
         zeichner = new BaumZeichner(600,400,baum);
     }
 
@@ -20,13 +19,11 @@ public class BaumTest {
             einzufuegendeZahl = new Zahl(wert[i]);
             baum.insert(einzufuegendeZahl);
             System.out.println("eingefuegt: " + einzufuegendeZahl.getZahl());
-            //this.ausgabe(baum, "");
         }
         this.ausgabe(baum,"");
         
         System.out.print("inorder-Traversierung: ");
         this.inorder(baum);
-        //zeichner.zeigeBaum(this.gibBaum(baum));
         zeichner.zeigeBaum(baum);
     }
 
